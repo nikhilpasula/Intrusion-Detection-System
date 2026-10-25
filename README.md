@@ -268,7 +268,7 @@ Packet driver	Npcap (Windows)	1.89+
 Server	gunicorn	21.2+
 Frontend	HTML + CSS + vanilla JS	No framework
 ## Author
-Nikhil Pasula
+NikhilPasula
 Internship Project · October 2026
 <https://github.com/nikhilpasula>
 
