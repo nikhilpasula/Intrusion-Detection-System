@@ -54,7 +54,7 @@ Every event is classified. Every attack is stored as a pattern. Every pattern ca
 
 Traditional IDSs are static. They're trained once and deployed. When a new attack appears, they miss it.
 
-This system closes the loop:
+## This system closes the loop:
 Event arrives → classified as "port_scan" (high, 0.94)
 
 Pattern stored → "port_scan:TCP:800" with status=pending
@@ -155,11 +155,11 @@ python app.py
 Open http://localhost:5000 in your browser.
 Login: admin / admin
 
-To generate attack traffic:
+## To generate attack traffic:
 python simulate.py
 To capture real network traffic (Windows — requires Npcap + Administrator):
 python capture.py
-**File Structure**
+## File Structure
 adaptive-ids/
 ├── app.py                       Flask app — routes, auth, API
 ├── database.py                  SQLite schema + helpers
@@ -190,7 +190,7 @@ adaptive-ids/
 │   └── settings.html            Thresholds + API
 │
 └── adaptive-ids.html            Standalone browser demo
-**ML Pipeline**
+## ML Pipeline
 Feature Extraction (14 Features per Event)
 #	Feature	Meaning
 1	src_port	Source port
@@ -207,7 +207,7 @@ Feature Extraction (14 Features per Event)
 12	packet_size	Average packet size
 13	failed_logins	Failed auth attempts
 14	request_rate	Requests per second
-**Models**
+## Models
 Model	Purpose	Configuration
 RandomForestClassifier	Multiclass attack classification	150 trees, max depth 12
 IsolationForest	Unsupervised anomaly detection	contamination = 0.1
@@ -227,7 +227,7 @@ Malformed packet	Medium	Flagged
 Normal traffic	Low	Logged
 Sanity guard: if the top prediction is on a common port (80, 443, 22, 53…) with no rate spike, no failed logins, and confidence below 0.90 — it defaults to normal. Reduces false positives on benign traffic.
 
-**Known Limitations**
+## Known Limitations
 This is a demo-grade system, not a production product. Documented honestly:
 
 Limitation	Impact	Production Fix
@@ -240,7 +240,7 @@ Ephemeral cloud storage	DB resets on restart	Persistent volume
 No auth on /api/events	Anyone can inject events	Bearer token
 Catastrophic forgetting	Retraining can degrade old patterns	Replay buffers
 
-**Project Objective**
+## Project Objective
 The goal was to build a practical, demonstrable cybersecurity project for internship review — one that shows:
 
 Real machine learning (not rule-based if-statements)
@@ -257,7 +257,7 @@ The project follows the workflow:
 Observe → Collect → Extract Features → Detect → Classify →
 Alert → Store Pattern → Validate → Learn → Improve
 
-**Tech Stack Details**
+## Tech Stack Details
 Layer	Technology	Version
 Backend	Flask	3.0+
 ML	scikit-learn	1.5+
@@ -267,12 +267,12 @@ Packet capture	scapy	2.5+
 Packet driver	Npcap (Windows)	1.89+
 Server	gunicorn	21.2+
 Frontend	HTML + CSS + vanilla JS	No framework
-**Author**
+## Author
 Nikhil Pasula
 Internship Project · October 2026
 github.com/nikhilpasula
 
-**Acknowledgements**
+## Acknowledgements
 Design system inspired by Linear, Sentry, Vercel, and NVIDIA. ML architecture follows standard IDS research baselines. Built with assistance from Claude for design and implementation guidance.
 
 
