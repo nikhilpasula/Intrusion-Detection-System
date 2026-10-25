@@ -270,7 +270,7 @@ Frontend	HTML + CSS + vanilla JS	No framework
 ## Author
 Nikhil Pasula
 Internship Project · October 2026
-github.com/nikhilpasula
+<https://github.com/nikhilpasula>
 
 ## Acknowledgements
 Design system inspired by Linear, Sentry, Vercel, and NVIDIA. ML architecture follows standard IDS research baselines. Built with assistance from Claude for design and implementation guidance.
